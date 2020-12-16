@@ -1,0 +1,33 @@
+th {
+    padding: 5px 5px 5px 5px;
+}
+
+td {
+    padding: 5px 5px 5px 5px;
+}
+
+.sidebar.collapse.show,
+.sidebar.collapse.show + .col {
+    transition: .1s linear;
+    left: 0;
+}
+
+.sidebar.collapse,
+.sidebar.collapsing,
+.sidebar.collapsing + .col {
+    transition: .1s linear;
+    z-index: 1050;
+    left: -25%;
+    height: auto !important;
+}
+
+.carousel-indicators li {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: #999;
+}
+
+.carousel-indicators .active {
+    background-color: blue;
+}

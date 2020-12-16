@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en" class="h-100">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Badger Bank">
+		<meta name="author" content="Cole Nelson">
+		<title>JavaScript Beta: Badger Bank</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body class="h-100">
+		<nav class="navbar navbar-dark px-3 py-0 d-flex justify-content-between" style="height: 8%; background-color: #c5050c;">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar">
+				<span class="material-icons" style="color: #f7f7f7; font-size: 32px;">list</span>
+			</button>
+			<span class="navbar-text" style="color: #f7f7f7; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+				Welcome to Badger Bank!
+			</span>
+		</nav>
+		<div class="row w-100 no-gutters" style="height: 86%;">
+			<div class="col-2 collapse show sidebar" id="sidebar">
+				<div class="d-flex flex-column justify-content-between h-100" style="background-color:#db6b70;">
+					<ul class="nav nav-pills flex-column text-truncate navbar-dark p-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<li class="nav-item">
+							<a class="nav-link active text-white d-flex align-items-center" id="v-pills-account-tab" data-toggle="pill" href="#v-pills-account" role="tab" aria-controls="v-pills-account" aria-selected="true">
+								<span class="material-icons">account_balance_wallet</span>
+								<span class="ml-3 d-none d-sm-inline">Account</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white d-flex align-items-center" id="v-pills-statement-tab" data-toggle="pill" href="#v-pills-statement" role="tab" aria-controls="v-pills-statement" aria-selected="true">
+								<span class="material-icons">description</span>
+								<span class="ml-3 d-none d-sm-inline">Statement</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white d-flex align-items-center" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">
+								<span class="material-icons">account_circle</span>
+								<span class="ml-3 d-none d-sm-inline">Profile</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-white d-flex align-items-center" id="v-pills-beneficiary-tab" data-toggle="pill" href="#v-pills-beneficiary" role="tab" aria-controls="v-pills-beneficiary" aria-selected="true">
+								<span class="material-icons">group</span>
+								<span class="ml-3 d-none d-sm-inline">Beneficiary</span>
+							</a>
+						</li>
+					</ul>
+					<div class="d-flex justify-content-end">
+						<form>
+							<button type="submit" class="btn" formaction='javascript:logout();' style="border: none">
+								<span class="material-icons" style="color: white; font-size: 32px;">exit_to_app</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col tab-content" id="v-pills-tabContent">
+				<div class="tab-pane flex-column show active w-100 h-100" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab">
+					<div class="d-flex justify-content-center align-items-center pt-3" style="height: 5%; font-size: 1.8vmin;">Tip of the Day: Don't badger the environment, enroll in paperless statements today!</div>
+					<div id="accountCarousel" class="row carousel slide d-flex justify-content-center w-100 m-0 pb-3" data-interval=false style="height: 95%;">
+						<ol class="carousel-indicators d-flex align-items-center">
+							<li data-target="#accountCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#accountCarousel" data-slide-to="1"></li>
+							<li data-target="#accountCarousel" data-slide-to="2"></li>
+						</ol>
+						<a class="col-1 carousel-control-prev" href="#accountCarousel" role="button" data-slide="prev">
+							<span class="material-icons" style="font-size: 48px; color: black;">keyboard_arrow_left</span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="col-1 carousel-control-next" href="#accountCarousel" role="button" data-slide="next">
+							<span class="material-icons" style="font-size: 48px; color: black;">keyboard_arrow_right</span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<div class="col-10 carousel-inner d-flex align-items-center px-0">
+							<div class="carousel-item card active">
+								<div class="card-header bg-info text-white" style="font-size: 2vmax;">
+									Checking Account xxx126
+								</div>
+								<div class="card-body row text-center">
+									<div class="col-md-4 flex-column d-flex justify-content-around">
+										<div class="flex-column pb-3">
+											<div style="font-size: 5vmax; font-family: 'Times New Roman', Times, serif; font-weight: bold;">472.61</div>
+											<div style="font-size: 1.8vmax; font-weight: lighter;">Available Balance</div>
+										</div>
+										<div class="flex-column pb-3">
+											<div style="font-size: 3vmax; font-family: 'Times New Roman', Times, serif;">0.00%</div>
+											<div style="font-size: 1.5vmax; font-weight: lighter;">Interest Rate</div>
+										</div>
+									</div>
+									<div class="col-md-8 d-flex justify-content-center align-items-center">
+										<table border=1 frame=void rules=rows style="font-size: 1.2vmax;">
+											<thead>
+												<tr>
+													<th>Date</th>
+													<th>Description</th>
+													<th>Amount</th>
+													<th>Balance</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>09/13/2020</td>
+													<td>CHECK 192</td>
+													<td>-30.82</td>
+													<td>472.61</td>
+												</tr>
+												<tr>
+													<td>09/02/2020</td>
+													<td>MNTHLY DPST UW PAYROLL</td>
+													<td>321.87</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>08/27/2020</td>
+													<td>CHECK 191</td>
+													<td>-750.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>08/14/2020</td>
+													<td>CHECK 188</td>
+													<td>-10.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>08/02/2020</td>
+													<td>MNTHLY DPST UW PAYROLL</td>
+													<td>637.91</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>07/18/2020</td>
+													<td>VENMO</td>
+													<td>-25.00</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="card-footer bg-info"></div>
+							</div>
+							<div class="carousel-item card">
+								<div class="card-header bg-info text-white" style="font-size: 2vmax;">
+									Savings Account xxx271
+								</div>
+								<div class="card-body row text-center">
+									<div class="col-md-4 flex-column d-flex justify-content-around">
+										<div class="flex-column pb-3">
+											<div style="font-size: 5vmax; font-family: 'Times New Roman', Times, serif; font-weight: bold;">248.34</div>
+											<div style="font-size: 1.8vmax; font-weight: lighter;">Available Balance</div>
+										</div>
+										<div class="flex-column pb-3">
+											<div style="font-size: 3vmax; font-family: 'Times New Roman', Times, serif;">0.06%</div>
+											<div style="font-size: 1.5vmax; font-weight: lighter;">Interest Rate</div>
+										</div>
+									</div>
+									<div class="col-md-8 d-flex justify-content-center align-items-center">
+										<table border=1 frame=void rules=rows style="font-size: 1.2vmax;">
+											<thead>
+												<tr>
+													<th>Date</th>
+													<th>Description</th>
+													<th>Amount</th>
+													<th>Balance</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>07/21/2020</td>
+													<td>TRANSFER FROM EXT. ACCT</td>
+													<td>67.23</td>
+													<td>248.34</td>
+												</tr>
+												<tr>
+													<td>07/01/2020</td>
+													<td>TRANSFER FROM EXT. ACCT</td>
+													<td>52.68</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>04/06/2020</td>
+													<td>TRANSFER TO EXT. ACCT.</td>
+													<td>-127.63</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>03/11/2020</td>
+													<td>TRANSFER FROM EXT. ACCT</td>
+													<td>100.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>02/14/2020</td>
+													<td>TRANSFER TO EXT. ACCT.</td>
+													<td>50.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>01/01/2020</td>
+													<td>INTEREST PAID</td>
+													<td>0.06</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="card-footer bg-info"></div>
+							</div>
+							<div class="carousel-item card">
+								<div class="card-header bg-info text-white" style="font-size: 2vmax;">
+									Savings Account xxx918
+								</div>
+								<div class="card-body row text-center">
+									<div class="col-md-4 flex-column d-flex justify-content-around">
+										<div class="flex-column pb-3">
+											<div style="font-size: 5vmax; font-family: 'Times New Roman', Times, serif; font-weight: bold;">5027.03</div>
+											<div style="font-size: 1.8vmax; font-weight: lighter;">Available Balance</div>
+										</div>
+										<div class="flex-column pb-3">
+											<div style="font-size: 3vmax; font-family: 'Times New Roman', Times, serif;">0.06%</div>
+											<div style="font-size: 1.5vmax; font-weight: lighter;">Interest Rate</div>
+										</div>
+									</div>
+									<div class="col-md-8 d-flex justify-content-center align-items-center">
+										<table border=1 frame=void rules=rows style="font-size: 1.2vmax;">
+											<thead>
+												<tr>
+													<th>Date</th>
+													<th>Description</th>
+													<th>Amount</th>
+													<th>Balance</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>01/01/2020</td>
+													<td>INTEREST PAID</td>
+													<td>3.01</td>
+													<td>5027.03</td>
+												</tr>
+												<tr>
+													<td>09/01/2020</td>
+													<td>TRANSFER TO EXT. ACCT.</td>
+													<td>-5000.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>01/01/2019</td>
+													<td>INTEREST PAID</td>
+													<td>6.01</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>01/01/2018</td>
+													<td>INTEREST PAID</td>
+													<td>6.01</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>01/01/2016</td>
+													<td>INTEREST PAID</td>
+													<td>6.00</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>01/01/2015</td>
+													<td>INTEREST PAID</td>
+													<td>6.00</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="card-footer bg-info"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane w-100" id="v-pills-statement" role="tabpanel" aria-labelledby="v-pills-statement-tab">
+					<h3 style="padding: 30px 0px 15px 30px;">Your Statements</h3>
+					<div class="px-5">
+						<div class="row py-2">
+							<span class="col-sm-1 material-icons md-dark d-flex justify-content-start align-items-center">description</span>
+							<div class="col-sm-6">Account Statements</div>
+							<form class="col-sm-1 d-flex justify-content-start align-items-center" method="get" action ="./account_info/account_statement.pdf">
+								<button type="submit" style="border: none; background: none;">
+									<span class="material-icons md-dark">get_app</span>
+								</button>
+							</form>
+						</div>
+						<div class="row py-2">
+							<span class="col-sm-1 material-icons md-dark d-flex justify-content-start align-items-center">description</span>
+							<div class="col-sm-6">Tax Statements</div>
+							<form class="col-sm-1 d-flex justify-content-start align-items-center" method="get" action ="./account_info/tax_information.pdf">
+								<button type="submit" style="border: none; background: none;">
+									<span class="material-icons md-dark d-flex">get_app</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane w-100" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+					<h3 style="padding: 30px 0px 15px 30px;">Your Profile</h3>
+					<form class="px-5">
+						<div class="form-group">
+							<label for="inputName">Name</label>
+							<div class="form-row" id="inputName">
+								<div class="col">
+									<input type="text" class="form-control" placeholder="Bucky">
+								</div>
+								<div class="col">
+									<input type="text" class="form-control" placeholder="Badger">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail">Email address</label>
+							<input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="bucky.badger@example.com">
+						</div>
+						<div class="form-group">
+							<label for="inputPhoneNum">Phone Number</label>
+							<input type="tel" class="form-control" id="inputPhoneNum" placeholder="555.555.1234">
+						</div>
+						<div class="form-group d-flex justify-content-between">
+							<label for="inputEnrollPaperless">Enrolled in paperless statements:
+								<p id="paperlessEnrollment" style="display: inline">false</p>
+							</label>
+							<button type="submit" class="btn btn-secondary" id="paperlessEnrollmentBtn" formaction='javascript:togglePaperlessEnrollment();'>Enroll</button>
+						</div>
+						<button type="submit" class="btn btn-primary">Save</button>
+					</form>
+				</div>
+				<div class="tab-pane w-100" id="v-pills-beneficiary" role="tabpanel" aria-labelledby="v-pills-beneficiary-tab">
+					<h3 style="padding: 30px 0px 15px 30px;">Your Beneficiaries</h3>
+					<div class="px-5">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Email</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Goldy Golpher</td>
+									<td>goldy.gopher@example.com</td>
+								</tr>
+								<tr>
+									<td>Pioneer Pete</td>
+									<td>pioneer.pete@example.com</td>
+								</tr>
+							</tbody>
+						</table>
+						<form>
+							<button type="submit" class="btn btn-primary" formaction='javascript:addBeneficiary();'>Add Beneficiary</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-dark py-0" style="height: 6%; background-color: #c5050c">
+			<span class="navbar-text mx-auto" style="font-size: 1vmax; color: #f7f7f7;">Have a question? Contact us at 555.555.4321 or by emailing badgerbank@example.com</span>
+		</nav>
+		
+		<script src="script.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	</body>
+</html>
